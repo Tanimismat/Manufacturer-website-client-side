@@ -1,4 +1,6 @@
 import React from 'react';
+import { BsHouseDoorFill } from "react-icons/bs";
+import { faEnvelope } from "react-icons/fa";
 
 const Footer = () => {
     return (
