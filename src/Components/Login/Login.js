@@ -49,16 +49,21 @@ return (
                 <div className="form-floating">
                     <input type="password" className="form-control" id="floatingPassword" placeholder="Password"
                         {...register('password', {
-                         required: {
+                        required: {
                                 value: true,
                                 message: "Password is required"
-                            }
+                            },
+                            pattern: {
+                                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                                message:'Password must be eight characters including one letter, one number and one special character'
+                        }
                     })}
                     />
                     <label htmlFor="floatingPassword">Password</label>
                 </div>
                 <div className='text-danger'>
                     {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
+                    {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
                 </div>
                 <button>Continue</button>
             </form>
