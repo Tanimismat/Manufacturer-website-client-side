@@ -25,13 +25,8 @@ const Login = () => {
         return <Loading></Loading>
     }
 
-    if (googleUser || user) {
-        console.log(googleUser || user)
-    // return (
-    //   <div>
-    //     <p>Signed In User: {googleUser.displayName}</p>
-    //   </div>
-    //     );
+    if (user || googleUser) {
+        console.log(user)
     }
 
     const onSubmit = data => {

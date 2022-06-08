@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import { Link } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -17,13 +17,15 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+
     let signInError;
 
-    if (error) {
+    if (error || updatingError) {
         signInError = <p className="text-danger text-center"><small>{ error?.message}</small></p>
     }
 
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
 
@@ -31,10 +33,12 @@ const Register = () => {
         console.log( user)
     }
 
-    const onSubmit = data => {
+    const onSubmit = async data => {
         setUserInfo(data)
         console.log(data)
-        createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName : data.name})
+        console.log('update done')
     }
     console.log("errors",errors)
     console.log("user info",userInfo)
@@ -51,7 +55,7 @@ const Register = () => {
                     <input
                         type="text"
                         className="form-control"
-                        id="floatingInput"
+                        // id="floatingInput"
                         placeholder="Name"
                         name='name'
                         autoComplete='off'
@@ -71,7 +75,7 @@ const Register = () => {
                     <input
                         type="email"
                         className="form-control"
-                        id="floatingInput"
+                        // id="floatingInput"
                         placeholder="name@example.com"
                         name='email'
                         autoComplete='off'
