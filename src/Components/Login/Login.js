@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Header from '../Shared/Header';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Button, Spinner } from 'react-bootstrap';
 
 const Login = () => {
 
@@ -11,8 +12,31 @@ const Login = () => {
 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
-    if (googleUser) {
-        console.log(googleUser)
+    const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
+
+    let signInError;
+
+    if (error || googleError) {
+        signInError = <p className="text-danger text-center"><small>{ error?.message || googleError?.message }</small></p>
+    }
+
+    if (googleLoading || loading) {
+        return<>
+                <Button variant="dark" disabled>
+                    <Spinner
+                        as="span"
+                        animation="border"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                    />
+                    <span>Loading...</span>
+                </Button>
+            </>
+    }
+
+    if (googleUser || user) {
+        console.log(googleUser || user)
     // return (
     //   <div>
     //     <p>Signed In User: {googleUser.displayName}</p>
@@ -23,6 +47,7 @@ const Login = () => {
     const onSubmit = data => {
         setUserInfo(data)
         console.log(data)
+        signInWithEmailAndPassword(data.email, data.password)
     }
     console.log("errors",errors)
     console.log("user info",userInfo)
@@ -30,7 +55,7 @@ const Login = () => {
 return (
     <div>
         <Header></Header>
-        <div className="w-25 mx-auto">
+        <div className="w-50 mx-auto">
             <div className="text-center">
                 <h3>Sign in</h3>
                 <p>to continue access</p>
@@ -85,6 +110,7 @@ return (
                     {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
                     {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
                 </div>
+                { signInError }
                 <button>Continue</button>
             </form>
 
