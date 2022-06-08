@@ -3,7 +3,7 @@ import Header from '../Shared/Header';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Button, Spinner } from 'react-bootstrap';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
 
@@ -21,18 +21,7 @@ const Login = () => {
     }
 
     if (googleLoading || loading) {
-        return<>
-                <Button variant="dark" disabled>
-                    <Spinner
-                        as="span"
-                        animation="border"
-                        size="sm"
-                        role="status"
-                        aria-hidden="true"
-                    />
-                    <span>Loading...</span>
-                </Button>
-            </>
+        return <Loading></Loading>
     }
 
     if (googleUser || user) {
