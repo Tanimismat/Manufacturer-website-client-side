@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -47,7 +48,6 @@ return (
         <div className="w-50 mx-auto">
             <div className="text-center">
                 <h3>Sign in</h3>
-                <p>to continue access</p>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className='needs-validation' >
@@ -58,6 +58,7 @@ return (
                         id="floatingInput"
                         placeholder="name@example.com"
                         name='email'
+                        autoComplete='off'
                         {...register('email', {
                             required: {
                                 value: true,
@@ -104,7 +105,7 @@ return (
             </form>
 
             <p className="text-end">Forget Password?</p>
-            <p>Don't have an account? Please Register</p>
+            <p>Don't have an account? <Link to="/register">Please Register</Link> </p>
             
             <p className='text-center'>or Connect with Social Media</p>
             <button onClick={()=> signInWithGoogle()} className="w-100 mb-2">Sign in with Google</button>
