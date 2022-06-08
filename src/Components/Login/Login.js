@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import Header from '../Shared/Header';
 import { useForm } from 'react-hook-form';
+import auth from '../../firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Login = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [userInfo, setUserInfo] = useState();
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+    if (googleUser) {
+        console.log(googleUser)
+    // return (
+    //   <div>
+    //     <p>Signed In User: {googleUser.displayName}</p>
+    //   </div>
+    //     );
+    }
 
     const onSubmit = data => {
         setUserInfo(data)
@@ -25,7 +38,12 @@ return (
 
             <form onSubmit={handleSubmit(onSubmit)} className='needs-validation' >
                 <div className="form-floating mb-3">
-                    <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"
+                    <input
+                        type="email"
+                        className="form-control"
+                        id="floatingInput"
+                        placeholder="name@example.com"
+                        name='email'
                         {...register('email', {
                             required: {
                                 value: true,
@@ -38,8 +56,6 @@ return (
                         })}
                     />
                     <label htmlFor="floatingInput">Email address</label>
-                    
-                    
                 </div>
                 <div className='text-danger'>
                     {errors.email?.type === 'required' && <p>{errors.email.message}</p>}
@@ -47,7 +63,11 @@ return (
                 </div>
 
                 <div className="form-floating">
-                    <input type="password" className="form-control" id="floatingPassword" placeholder="Password"
+                    <input
+                        type="password"
+                        className="form-control" id="floatingPassword"
+                        placeholder="Password"
+                        name='password'
                         {...register('password', {
                         required: {
                                 value: true,
@@ -72,7 +92,7 @@ return (
             <p>Don't have an account? Please Register</p>
             
             <p className='text-center'>or Connect with Social Media</p>
-            <button className="w-100 mb-2">Sign in with Google</button>
+            <button onClick={()=> signInWithGoogle()} className="w-100 mb-2">Sign in with Google</button>
             <button className="w-100">Sign in with Twitter</button>
         </div>
         

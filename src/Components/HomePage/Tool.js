@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const tool = ({ tool }) => {
-    console.log(tool)
+    // console.log(tool)
     const { name, img, description, minOrder, availableQuantity, price } = tool;
     return (
         <div>
