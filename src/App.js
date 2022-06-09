@@ -7,7 +7,6 @@ import Register from './Components/Login/Register';
 import RequireAuth from './Components/Login/RequireAuth';
 import Purchase from './Components/Purchase/Purchase';
 import NotFound from './Components/Shared/NotFound';
-import ToolDetail from './Components/ToolDetail/ToolDetail';
 
 function App() {
   return (
@@ -16,12 +15,12 @@ function App() {
         <Route path='/' element={<Home/>}></Route>
         <Route path='/home' element={<Home/>}></Route>
         <Route path='/blogs' element={<Blogs/>}></Route>
-        <Route path='/purchase' element={
+        <Route path='/purchase/:purchaseId' element={
           <RequireAuth>
             <Purchase />
           </RequireAuth>
         }></Route>
-        <Route path='/purchase/:purchaseId' element={<Purchase/>}></Route>
+        {/* <Route path='/purchase/:purchaseId' element={<Purchase/>}></Route> */}
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
