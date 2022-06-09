@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 
-const tool = ({ tool }) => {
+const Tool = ({ tool }) => {
     // console.log(tool)
-    const { name, img, description, minOrder, availableQuantity, price } = tool;
+    const { id, name, img, description, minOrder, availableQuantity, price } = tool;
+    const navigate = useNavigate()
+
+    const navigateToPurchaseDetail = (id) => {
+        navigate(`/purchase/${id}`)
+    }
     return (
         <div>
             <div className="card mb-3" style={{ maxWidth: "540px" }}>
@@ -18,7 +23,7 @@ const tool = ({ tool }) => {
                             <p className="card-text">Minimum Order: {minOrder}</p>
                             <p className="card-text">Available Quantity: {availableQuantity}</p>
                             <p className="card-text">Price: ${price}</p>
-                            <button><Link to="/purchase">Place Order</Link></button>
+                            <button onClick={() => navigateToPurchaseDetail(id)}><Link to="/purchase">Place Order</Link></button>
                         </div>
                     </div>
                 </div>
@@ -27,4 +32,4 @@ const tool = ({ tool }) => {
     );
 };
 
-export default tool;
+export default Tool;

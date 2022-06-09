@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from '../Shared/Header';
 
 const Blogs = () => {
     return (
         <div>
+            <Header></Header>
             <div>
                 <h6>How will you improve the performance of a react application?</h6>
                 <li>Using the production build </li>

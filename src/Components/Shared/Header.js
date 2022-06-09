@@ -15,10 +15,11 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/home">React-Bootstrap</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav>
+                            <Nav.Link as={Link} to="/home">HOME</Nav.Link>
                             <Nav.Link as={Link} to="/blogs">BLOGS</Nav.Link>
                             <Nav.Link as={Link} to="/purchase">PURCHASE</Nav.Link>
                         </Nav>
