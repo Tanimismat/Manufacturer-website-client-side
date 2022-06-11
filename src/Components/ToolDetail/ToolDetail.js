@@ -6,7 +6,7 @@ const ToolDetail = () => {
     const [singleTool, setSingleTool]=useState()
     const { purchaseId } = useParams()
     const [tools] = useTools()
-    // console.log(tools)
+    console.log(singleTool)
     
     useEffect(() => {
         const found = tools.find(item => item.id === purchaseId)
@@ -17,7 +17,11 @@ const ToolDetail = () => {
         <div>
             <h5>Tool detail: { purchaseId }</h5>
             {/* <h5>Tools: {tools.length}</h5> */}
-            <p>{ singleTool?.id }</p>
+            {singleTool?.id}
+            <img src={singleTool?.img} alt="tool" />
+            <h6>{singleTool?.name}</h6>
+            <h5>$ {singleTool?.price }</h5>
+            <p>{singleTool?.description}</p>
         </div>
     );
 };
