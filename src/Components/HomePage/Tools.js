@@ -8,7 +8,9 @@ const Tools = () => {
 
     return (
         <div className='tools'>
-            
+            {
+                tools.map((tool, index) => <Tool key={tool._id} tool={tool}></Tool>)
+            }
         </div>
     );
 };
