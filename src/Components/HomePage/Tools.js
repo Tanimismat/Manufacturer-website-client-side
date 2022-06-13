@@ -4,15 +4,11 @@ import Tool from '../HomePage/Tool';
 const Tools = () => {
 
     const [tools] = useTools()
+    console.log(tools)
 
     return (
         <div className='tools'>
-            {
-                tools.map(tool => <Tool
-                    key={tool.id}
-                    tool={tool}
-                ></Tool>)
-            }
+            
         </div>
     );
 };
