@@ -4,7 +4,7 @@ import Tool from '../HomePage/Tool';
 const Tools = () => {
 
     const [tools] = useTools()
-    console.log(tools)
+    // console.log(tools)
 
     return (
         <div className='tools'>

@@ -7,10 +7,7 @@ const useTools = () => {
 
     useEffect(() => {
         axios('http://localhost:5000/tools')
-        // fetch('http://localhost:5000/tools')
-            // .then(res => res.json())
             .then(data => {
-                console.log(data.data)
                 setTools(data.data)
             });
     }, []);
