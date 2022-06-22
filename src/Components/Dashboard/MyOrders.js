@@ -1,11 +1,9 @@
 import React from 'react';
-import Sidebar from '../Dashboard/Sidebar';
 
 const MyOrders = () => {
     return (
         <div>
-            <h4>my orders</h4>
-            <Sidebar></Sidebar>
+            <h3>my orders</h3>
         </div>
     );
 };

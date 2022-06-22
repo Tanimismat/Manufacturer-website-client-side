@@ -2,9 +2,7 @@ import React from 'react';
 import { Link, useNavigate} from 'react-router-dom'
 
 const Tool = ({ tool }) => {
-    console.log(tool)
     const { _id, name, img, description, minOrder, availableQuantity, price } = tool || {}
-    console.log(name)
     const navigate = useNavigate()
 
     const navigateToPurchaseDetail = (id) => {

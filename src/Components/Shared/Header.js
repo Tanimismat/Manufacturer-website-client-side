@@ -24,6 +24,9 @@ const Header = () => {
                             {/* <Nav.Link as={Link} to="/purchase">PURCHASE</Nav.Link> */}
                         </Nav>
                         {
+                            user && <Nav.Link as={Link} to="/dashboard">DASHBOARD</Nav.Link>
+                        }
+                        {
                             user ?
                             <Nav>
                                 <Nav.Link onClick={logout}>LOGOUT</Nav.Link>
