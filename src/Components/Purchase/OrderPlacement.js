@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 
 const OrderPlacement = () => {
@@ -9,6 +11,8 @@ const OrderPlacement = () => {
     const max = 50000;
 
     const [value, setValue] = useState(0);
+
+    const [user] = useAuthState(auth)
     
     const handleChange = (e) => {
         // e.preventDefault()
@@ -20,7 +24,6 @@ const OrderPlacement = () => {
 
         setValue(value);
     }
-    console.log(value)
 
     useEffect(() => {
         if (value < min || value > max) {
@@ -34,20 +37,27 @@ const OrderPlacement = () => {
     const addressRef = useRef('')
     const phoneRef = useRef('')
     const quantityRef = useRef()
-    const handleSubmit = (e) => {
+
+    const handleOrder = (e) => {
         e.preventDefault()
         const address = addressRef.current.value
         const phone = phoneRef.current.value
         const quantity = quantityRef.current.value
-        console.log(address, phone, quantity)
+        
+        const order = {
+            orderId: user._id,
+            user: user.displayName,
+            address: address,
+            phone: phone,
+            quantity: quantity
+        }
 
-        const url = `http://localhost:5000/tools`;
-        fetch(url, {
+        fetch(`http://localhost:5000/orders`, {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
             },
-            body: JSON.stringify(address, phone, quantity)
+            body: JSON.stringify(order)
         })
             .then(res => res.json())
             .then(result => {
@@ -58,7 +68,7 @@ const OrderPlacement = () => {
     return (
         <div>
             <h4>place order</h4>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleOrder}>
                 <textarea
                     autoComplete='off'
                     ref={addressRef}
