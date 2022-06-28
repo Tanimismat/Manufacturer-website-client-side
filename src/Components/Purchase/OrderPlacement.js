@@ -72,7 +72,7 @@ const OrderPlacement = () => {
                 <textarea
                     autoComplete='off'
                     ref={addressRef}
-                    className='form-control' id="exampleFormControlTextarea1" name="address" cols="30" rows="10" placeholder='Address'></textarea>
+                    className='' id="exampleFormControlTextarea1" name="address" cols="30" rows="10" placeholder='Address'></textarea>
                 <input
                     autoComplete='off'
                     ref={phoneRef} type="tel" name="phone" id="phone" placeholder='Phone Number' /> <br />

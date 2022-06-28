@@ -10,18 +10,18 @@ const Tool = ({ tool }) => {
     }
     return (
         <div>
-            <div className="card mb-3" style={{ maxWidth: "540px" }}>
-                <div className="row g-0">
-                    <div className="col-md-4">
-                        <img src={img} className="img-fluid rounded-start" alt="..." />
+            <div className="" style={{ maxWidth: "540px" }}>
+                <div className="">
+                    <div className="">
+                        <img src={img} className="" alt="..." />
                     </div>
-                    <div className="col-md-8">
-                        <div className="card-body">
-                            <h5 className="card-title">{name}</h5>
-                            <p className="card-text">{description}</p>
-                            <p className="card-text">Minimum Order: {minOrder}</p>
-                            <p className="card-text">Available Quantity: {availableQuantity}</p>
-                            <p className="card-text">Price: ${price}</p>
+                    <div className="">
+                        <div className="">
+                            <h5 className="">{name}</h5>
+                            <p className="">{description}</p>
+                            <p className="">Minimum Order: {minOrder}</p>
+                            <p className="">Available Quantity: {availableQuantity}</p>
+                            <p className="">Price: ${price}</p>
                             <button onClick={() => navigateToPurchaseDetail(_id)}><Link to="/purchase">Place Order</Link></button>
                         </div>
                     </div>

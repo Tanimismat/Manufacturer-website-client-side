@@ -27,7 +27,7 @@ const Register = () => {
     let signInError;
 
     if (error || updatingError) {
-        signInError = <p className="text-danger text-center"><small>{ error?.message}</small></p>
+        signInError = <p className=""><small>{ error?.message}</small></p>
     }
 
     if (loading || updating) {
@@ -51,16 +51,16 @@ const Register = () => {
     return (
         <div>
         <Header></Header>
-        <div className="w-50 mx-auto">
-            <div className="text-center">
+        <div className="">
+            <div className="">
                 <h3>Please Register</h3>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='needs-validation' >
-                <div className="form-floating mb-3">
+            <form onSubmit={handleSubmit(onSubmit)} className='' >
+                <div className="">
                     <input
                         type="text"
-                        className="form-control"
+                        className=""
                         // id="floatingInput"
                         placeholder="Name"
                         name='name'
@@ -74,10 +74,10 @@ const Register = () => {
                     />
                     <label htmlFor="floatingInput">Name</label>
                     </div>
-                <div className='text-danger'>
+                <div className=''>
                     {errors.name?.type === 'required' && <p>{errors.name.message}</p>}
                 </div>
-                <div className="form-floating mb-3">
+                <div className="">
                     <input
                         type="email"
                         className="form-control"
@@ -98,15 +98,15 @@ const Register = () => {
                     />
                     <label htmlFor="floatingInput">Email address</label>
                 </div>
-                <div className='text-danger'>
+                <div className=''>
                     {errors.email?.type === 'required' && <p>{errors.email.message}</p>}
                     {errors.email?.type === 'pattern' && <p>{errors.email.message}</p>}
                 </div>
 
-                <div className="form-floating">
+                <div className="">
                     <input
                         type="password"
-                        className="form-control" id="floatingPassword"
+                        className="" id="floatingPassword"
                         placeholder="Password"
                         name='password'
                         {...register('password', {
@@ -122,7 +122,7 @@ const Register = () => {
                     />
                     <label htmlFor="floatingPassword">Password</label>
                 </div>
-                <div className='text-danger'>
+                <div className=''>
                     {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
                     {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
                 </div>
@@ -130,7 +130,7 @@ const Register = () => {
                 <button>Continue</button>
             </form>
 
-            <p className="text-end">Forget Password?</p>
+            <p className="">Forget Password?</p>
             <p>Already have an account? <Link to="/login">Please Login</Link> </p>
             
         </div>

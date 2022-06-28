@@ -23,7 +23,7 @@ const Login = () => {
     let signInError;
 
     if (error || googleError) {
-        signInError = <p className="text-danger text-center"><small>{ error?.message || googleError?.message }</small></p>
+        signInError = <p className=""><small>{ error?.message || googleError?.message }</small></p>
     }
 
     if (googleLoading || loading) {
@@ -46,13 +46,13 @@ const Login = () => {
 return (
     <div>
         <Header></Header>
-        <div className="w-50 mx-auto">
-            <div className="text-center">
+        <div className="">
+            <div className="">
                 <h3>Sign in</h3>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='needs-validation' >
-                <div className="form-floating mb-3">
+            <form onSubmit={handleSubmit(onSubmit)} className='' >
+                <div className="">
                     <input
                         type="email"
                         className="form-control"
@@ -73,12 +73,12 @@ return (
                     />
                     <label htmlFor="floatingInput">Email address</label>
                 </div>
-                <div className='text-danger'>
+                <div className=''>
                     {errors.email?.type === 'required' && <p>{errors.email.message}</p>}
                     {errors.email?.type === 'pattern' && <p>{errors.email.message}</p>}
                 </div>
 
-                <div className="form-floating">
+                <div className="">
                     <input
                         type="password"
                         className="form-control" id="floatingPassword"
@@ -97,7 +97,7 @@ return (
                     />
                     <label htmlFor="floatingPassword">Password</label>
                 </div>
-                <div className='text-danger'>
+                <div className=''>
                     {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
                     {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
                 </div>
@@ -105,12 +105,12 @@ return (
                 <button>Continue</button>
             </form>
 
-            <p className="text-end">Forget Password?</p>
+            <p className="">Forget Password?</p>
             <p>Don't have an account? <Link to="/register">Please Register</Link> </p>
             
-            <p className='text-center'>or Connect with Social Media</p>
-            <button onClick={()=> signInWithGoogle()} className="w-100 mb-2">Sign in with Google</button>
-            <button className="w-100">Sign in with Twitter</button>
+            <p className=''>or Connect with Social Media</p>
+            <button onClick={()=> signInWithGoogle()} className="">Sign in with Google</button>
+            <button className="">Sign in with Twitter</button>
         </div>
         
     </div>
