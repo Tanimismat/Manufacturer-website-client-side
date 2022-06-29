@@ -50,91 +50,80 @@ const Register = () => {
     console.log("user info",userInfo)
     return (
         <div>
-        <Header></Header>
-        <div className="">
-            <div className="">
-                <h3>Please Register</h3>
-            </div>
+            <Header></Header>
+            <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
-            <form onSubmit={handleSubmit(onSubmit)} className='' >
-                <div className="">
-                    <input
-                        type="text"
-                        className=""
-                        // id="floatingInput"
-                        placeholder="Name"
-                        name='name'
-                        autoComplete='off'
-                        {...register('name', {
-                            required: {
-                                value: true,
-                                message: "Name is required"
-                            }
-                        })}
-                    />
-                    <label htmlFor="floatingInput">Name</label>
+                    <div className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} >
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    className="input input-bordered"
+                                    id="floatingInput"
+                                    placeholder="name@example.com"
+                                    name='email'
+                                    autoComplete='off'
+                                    {...register('email', {
+                                        required: {
+                                        value: true,
+                                        message: "Email is required"
+                                    },
+                                        pattern: {
+                                        value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})/,
+                                        message: 'Please provide a valid email' 
+                                    }
+                                })}
+                                />
+                            </div>
+                            <div className='text-red-500'>
+                                {errors.email?.type === 'required' && <p>{errors.email.message}</p>}
+                                {errors.email?.type === 'pattern' && <p>{errors.email.message}</p>}
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input
+                                    type="password"
+                                    className="input input-bordered"
+                                    id="floatingPassword"
+                                    placeholder="Password"
+                                    name='password'
+                                    {...register('password', {
+                                    required: {
+                                            value: true,
+                                            message: "Password is required"
+                                        },
+                                        pattern: {
+                                            value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                                            message:'Password must be eight characters including one letter, one number and one special character'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    <Link to="#" className="label-text-alt link link-hover">Forgot password?</Link>
+                                </label>
+                            </div>
+                            <div className=''>
+                                {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
+                                {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
+                            </div>
+                            {signInError}
+                            <div className="form-control mt-2">
+                                <button className="btn btn-primary">Register</button>
+                            </div>
+                        </form>    
+                        <p>Already have an account? <Link to="/login">Please login</Link> </p>
                     </div>
-                <div className=''>
-                    {errors.name?.type === 'required' && <p>{errors.name.message}</p>}
                 </div>
-                <div className="">
-                    <input
-                        type="email"
-                        className="form-control"
-                        // id="floatingInput"
-                        placeholder="name@example.com"
-                        name='email'
-                        autoComplete='off'
-                        {...register('email', {
-                            required: {
-                                value: true,
-                                message: "Email is required"
-                            },
-                            pattern: {
-                                value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})/,
-                                message: 'Please provide a valid email' 
-                            }
-                        })}
-                    />
-                    <label htmlFor="floatingInput">Email address</label>
-                </div>
-                <div className=''>
-                    {errors.email?.type === 'required' && <p>{errors.email.message}</p>}
-                    {errors.email?.type === 'pattern' && <p>{errors.email.message}</p>}
-                </div>
-
-                <div className="">
-                    <input
-                        type="password"
-                        className="" id="floatingPassword"
-                        placeholder="Password"
-                        name='password'
-                        {...register('password', {
-                        required: {
-                                value: true,
-                                message: "Password is required"
-                            },
-                            pattern: {
-                                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-                                message:'Password must be eight characters including one letter, one number and one special character'
-                        }
-                    })}
-                    />
-                    <label htmlFor="floatingPassword">Password</label>
-                </div>
-                <div className=''>
-                    {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
-                    {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
-                </div>
-                { signInError }
-                <button>Continue</button>
-            </form>
-
-            <p className="">Forget Password?</p>
-            <p>Already have an account? <Link to="/login">Please Login</Link> </p>
-            
+            </div>
         </div>
-        
     </div>
     );
 };

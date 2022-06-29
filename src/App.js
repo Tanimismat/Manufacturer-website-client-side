@@ -11,7 +11,6 @@ import NotFound from './Components/Shared/NotFound';
 function App() {
   return (
     <div>
-      <button className="btn btn-primary">Button</button>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/home' element={<Home/>}></Route>

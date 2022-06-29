@@ -46,73 +46,82 @@ const Login = () => {
 return (
     <div>
         <Header></Header>
-        <div className="">
-            <div className="">
-                <h3>Sign in</h3>
+        <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+
+                    <div className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} >
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    className="input input-bordered"
+                                    id="floatingInput"
+                                    placeholder="name@example.com"
+                                    name='email'
+                                    autoComplete='off'
+                                    {...register('email', {
+                                        required: {
+                                        value: true,
+                                        message: "Email is required"
+                                    },
+                                        pattern: {
+                                        value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})/,
+                                        message: 'Please provide a valid email' 
+                                    }
+                                })}
+                                />
+                            </div>
+                            <div className='text-red-500'>
+                                {errors.email?.type === 'required' && <p>{errors.email.message}</p>}
+                                {errors.email?.type === 'pattern' && <p>{errors.email.message}</p>}
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input
+                                    type="password"
+                                    className="input input-bordered"
+                                    id="floatingPassword"
+                                    placeholder="Password"
+                                    name='password'
+                                    {...register('password', {
+                                    required: {
+                                            value: true,
+                                            message: "Password is required"
+                                        },
+                                        pattern: {
+                                            value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                                            message:'Password must be eight characters including one letter, one number and one special character'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    <Link to="#" className="label-text-alt link link-hover">Forgot password?</Link>
+                                </label>
+                            </div>
+                            <div className=''>
+                                {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
+                                {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
+                            </div>
+                            {signInError}
+                            <div className="form-control mt-2">
+                                <button className="btn btn-primary">Login</button>
+                            </div>
+                        </form>    
+                        <p className=''>or Connect with Social Media</p>
+                        <button onClick={()=> signInWithGoogle()} className="btn btn-primary">Sign in with Google</button>
+                        
+                        <p>Don't have an account? <Link to="/register">Please Register</Link> </p>
+                    </div>
+                </div>
             </div>
-
-            <form onSubmit={handleSubmit(onSubmit)} className='' >
-                <div className="">
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="floatingInput"
-                        placeholder="name@example.com"
-                        name='email'
-                        autoComplete='off'
-                        {...register('email', {
-                            required: {
-                                value: true,
-                                message: "Email is required"
-                            },
-                            pattern: {
-                                value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})/,
-                                message: 'Please provide a valid email' 
-                            }
-                        })}
-                    />
-                    <label htmlFor="floatingInput">Email address</label>
-                </div>
-                <div className=''>
-                    {errors.email?.type === 'required' && <p>{errors.email.message}</p>}
-                    {errors.email?.type === 'pattern' && <p>{errors.email.message}</p>}
-                </div>
-
-                <div className="">
-                    <input
-                        type="password"
-                        className="form-control" id="floatingPassword"
-                        placeholder="Password"
-                        name='password'
-                        {...register('password', {
-                        required: {
-                                value: true,
-                                message: "Password is required"
-                            },
-                            pattern: {
-                                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-                                message:'Password must be eight characters including one letter, one number and one special character'
-                        }
-                    })}
-                    />
-                    <label htmlFor="floatingPassword">Password</label>
-                </div>
-                <div className=''>
-                    {errors.password?.type === 'required' && <p>{errors.password.message}</p>}
-                    {errors.password?.type === 'pattern' && <p>{errors.password.message}</p>}
-                </div>
-                { signInError }
-                <button>Continue</button>
-            </form>
-
-            <p className="">Forget Password?</p>
-            <p>Don't have an account? <Link to="/register">Please Register</Link> </p>
-            
-            <p className=''>or Connect with Social Media</p>
-            <button onClick={()=> signInWithGoogle()} className="">Sign in with Google</button>
-            <button className="">Sign in with Twitter</button>
         </div>
-        
     </div>
     );
 };
