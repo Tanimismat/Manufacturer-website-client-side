@@ -7,6 +7,10 @@ import Register from './Components/Login/Register';
 import RequireAuth from './Components/Login/RequireAuth';
 import Purchase from './Components/Purchase/Purchase';
 import NotFound from './Components/Shared/NotFound';
+import Dashboard from './Components/Dashboard/Dashboard';
+import MyOrders from './Components/Dashboard/MyOrders';
+import AddReview from './Components/Dashboard/AddReview';
+import MyProfile from './Components/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -21,7 +25,7 @@ function App() {
             <Purchase />
           </RequireAuth>
         }></Route>
-        {/* <Route path='/dashboard' element={
+        <Route path='/dashboard' element={
           <RequireAuth>
             <Dashboard />
           </RequireAuth>
@@ -29,7 +33,7 @@ function App() {
           <Route index element={<MyOrders/>}></Route>
           <Route path='addreview' element={<AddReview/>}></Route>
           <Route path='myprofile' element={<MyProfile/>}></Route>
-        </Route> */}
+        </Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>

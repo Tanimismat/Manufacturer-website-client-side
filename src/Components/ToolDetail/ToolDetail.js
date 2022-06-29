@@ -9,8 +9,8 @@ const ToolDetail = () => {
     const [singleTool, setSingleTool] = useState()
     const { id } = useParams()
     const [tools] = useTools()
-    console.log(tools)
-    console.log(id)
+    // console.log(tools)
+    // console.log(id)
     
     useEffect(() => {
         const found = tools.find(item => item._id === id)
