@@ -13,15 +13,15 @@ const OrderPlacement = () => {
     const [value, setValue] = useState(0);
 
     const [user] = useAuthState(auth)
+    console.log(user)
     
     const handleChange = (e) => {
-        // e.preventDefault()
+        e.preventDefault()
         const value = Math.max(min, Math.min(max, Number(e.target.value)));
         // Number() converts string into number type
         // Math.min() - taking two arguments, max and number which is given -- finds the lowest
         // Math.max() - taking two arguments, min and the lowest -- finds the largest
         // Formula: Math.max(a, Math.min(b, x))
-
         setValue(value);
     }
 
@@ -46,7 +46,8 @@ const OrderPlacement = () => {
         
         const order = {
             orderId: user._id,
-            user: user.displayName,
+            userName: user.displayName,
+            email: user.email, 
             address: address,
             phone: phone,
             quantity: quantity
