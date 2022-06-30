@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-
 const OrderPlacement = () => {
+    
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
     const min = 100;
     const max = 50000;
@@ -13,7 +13,6 @@ const OrderPlacement = () => {
     const [value, setValue] = useState(0);
 
     const [user] = useAuthState(auth)
-    console.log(user)
     
     const handleChange = (e) => {
         e.preventDefault()
@@ -46,6 +45,7 @@ const OrderPlacement = () => {
         
         const order = {
             orderId: user._id,
+            // product: name,
             userName: user.displayName,
             email: user.email, 
             address: address,

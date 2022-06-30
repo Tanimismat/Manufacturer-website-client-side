@@ -5,7 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 
 const ToolDetail = () => {
-    const [user, loading] =useAuthState(auth)
+    const [user] =useAuthState(auth)
     const [singleTool, setSingleTool] = useState()
     const { id } = useParams()
     const [tools] = useTools()
