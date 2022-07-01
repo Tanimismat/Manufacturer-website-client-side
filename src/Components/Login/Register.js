@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import useToken from '../Hooks/useToken';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -17,7 +18,11 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
+
+    const [token] = useToken(user)
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -26,15 +31,15 @@ const Register = () => {
 
     let signInError;
 
-    if (error || updatingError) {
+    if (error || updatingError || gError) {
         signInError = <p className=""><small>{ error?.message}</small></p>
     }
 
-    if (loading || updating) {
+    if (loading || updating || gLoading) {
         return <Loading></Loading>
     }
 
-    if (user) {
+    if (user || gUser) {
         // console.log( user)
         navigate(from, { replace: true })
     }
@@ -44,7 +49,7 @@ const Register = () => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName : data.name})
-        console.log('update done')
+        // console.log('update done')
     }
     console.log("errors",errors)
     console.log("user info",userInfo)
@@ -116,8 +121,12 @@ const Register = () => {
                             </div>
                             {signInError}
                             <div className="form-control mt-2">
-                                <button className="btn btn-primary">Register</button>
+                                    <button className="btn btn-primary">Register</button>
                             </div>
+                            <div className="form-control mt-2">
+                                    <button onClick={()=>signInWithGoogle()} className="btn btn-primary">Google</button>
+                            </div>
+                                
                         </form>    
                         <p>Already have an account? <Link to="/login">Please login</Link> </p>
                     </div>

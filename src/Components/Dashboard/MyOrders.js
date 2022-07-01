@@ -35,10 +35,10 @@ const MyOrders = () => {
                             orders.map((order, index) => <tr
                                 key={order._id}>
                                 <th>{index + 1}</th>
-                                <td>{order.userName }</td>
-                                <td>{order.email }</td>
-                                <td>{order.product }</td>
-                                <td>{order.quantity }</td>
+                                <td>{order.userName}</td>
+                                <td>{order.email}</td>
+                                <td>{order.product}</td>
+                                <td>{order.quantity}</td>
                             </tr>)
                         }
                         
