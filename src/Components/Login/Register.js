@@ -6,6 +6,7 @@ import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import useToken from '../Hooks/useToken';
+import { useRef } from 'react';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -22,7 +23,11 @@ const Register = () => {
 
     const [updateProfile, updating, updatingError] = useUpdateProfile(auth);
 
-    const [token] = useToken(user)
+    const [token] = useToken(user || gUser)
+
+    const nameRef = useRef('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -30,17 +35,14 @@ const Register = () => {
     let from = location.state?.from?.pathname || "/";
 
     let signInError;
-
     if (error || updatingError || gError) {
         signInError = <p className=""><small>{ error?.message}</small></p>
     }
-
     if (loading || updating || gLoading) {
         return <Loading></Loading>
     }
-
     if (user || gUser) {
-        // console.log( user)
+        console.log( user || gUser)
         navigate(from, { replace: true })
     }
 
@@ -50,8 +52,10 @@ const Register = () => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName : data.name})
         // console.log('update done')
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
     }
-    console.log("errors",errors)
     console.log("user info",userInfo)
     return (
         <div>
@@ -62,6 +66,20 @@ const Register = () => {
 
                     <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)} >
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    className="input input-bordered"
+                                    id="floatingInput"
+                                    placeholder="Name"
+                                    name='name'
+                                    autoComplete='off'
+                                />
+                            </div>
+                            
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
