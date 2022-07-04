@@ -36,7 +36,7 @@ const Register = () => {
 
     let signInError;
     if (error || updatingError || gError) {
-        signInError = <p className=""><small>{ error?.message}</small></p>
+        signInError = <p className=""><small>{ error?.message || updatingError?.message || gError?.message}</small></p>
     }
     if (loading || updating || gLoading) {
         return <Loading></Loading>
@@ -47,14 +47,14 @@ const Register = () => {
     }
 
     const onSubmit = async data => {
+        await createUserWithEmailAndPassword( data.email, data.password);
+        await updateProfile({ displayName: data.name})
         setUserInfo(data)
-        console.log(data)
-        await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName : data.name})
-        // console.log('update done')
-        const name = nameRef.current.value;
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
+        console.log('update done')
+        const name = nameRef.current;
+        const email = emailRef.current;
+        const password = passwordRef.current;
+        console.log(data.name)
     }
     console.log("user info",userInfo)
     return (
@@ -71,11 +71,12 @@ const Register = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input
+                                    ref={nameRef}
                                     type="text"
                                     className="input input-bordered"
-                                    id="floatingInput"
+                                    id="floatingName"
                                     placeholder="Name"
-                                    name='name'
+                                    name='text'
                                     autoComplete='off'
                                 />
                             </div>
@@ -85,6 +86,7 @@ const Register = () => {
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input
+                                     ref={emailRef}
                                     type="email"
                                     className="input input-bordered"
                                     id="floatingInput"
@@ -113,6 +115,7 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input
+                                    ref={passwordRef}
                                     type="password"
                                     className="input input-bordered"
                                     id="floatingPassword"

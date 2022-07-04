@@ -40,7 +40,6 @@ const Login = () => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
     }
-    console.log("errors",errors)
     console.log("user info",userInfo)
 
 return (

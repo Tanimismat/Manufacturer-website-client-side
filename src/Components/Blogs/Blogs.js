@@ -15,7 +15,6 @@ const Blogs = () => {
             </div>
             <div>
                 <h5>What are the different ways to manage a state in a react application?</h5>
-
             </div>
         </div>
     );
