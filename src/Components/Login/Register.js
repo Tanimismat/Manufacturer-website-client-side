@@ -41,8 +41,11 @@ const Register = () => {
     if (loading || updating || gLoading) {
         return <Loading></Loading>
     }
-    if (user || gUser) {
-        console.log( user || gUser)
+    // if (user || gUser) {
+    //     console.log( user || gUser)
+    //     navigate(from, { replace: true })
+    // }
+    if (token) {
         navigate(from, { replace: true })
     }
 
@@ -50,11 +53,9 @@ const Register = () => {
         await createUserWithEmailAndPassword( data.email, data.password);
         await updateProfile({ displayName: data.name})
         setUserInfo(data)
-        console.log('update done')
         const name = nameRef.current;
         const email = emailRef.current;
         const password = passwordRef.current;
-        console.log(data.name)
     }
     console.log("user info",userInfo)
     return (
