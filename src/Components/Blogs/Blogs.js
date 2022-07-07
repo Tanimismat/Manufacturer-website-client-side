@@ -21,6 +21,11 @@ const Blogs = () => {
                 <p>Server state : This states deals with data that comes from external server. Example : Loading state or error. The way of managing these states are using libraries like SWR and React Query.</p>
                 <p>URL state : These states contain information like query parameter, pathname, location, history etc. useHistory( ), uesLocation( ), useParams( ) are used to manage these kind of states.</p>
             </div>
+            <div>
+                <h4>How does prototypical inheritance work?</h4>
+                <p>Prototype is a private property which links one object to another. The word 'prototypical inheritance' is a feature of JS used to add methods and properties in object which means by this method an object can have another object's properties and methods to reuse. The prototypical inheritance is explained through the image below :</p>
+                <img src="https://i.ibb.co/5KN3Y5Y/Screenshot-5.png" alt="" />
+            </div>
         </div>
     );
 };
