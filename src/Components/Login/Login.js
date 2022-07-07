@@ -30,7 +30,6 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     let signInError;
-
     if (error || googleError) {
         signInError = <p className=""><small>{ error?.message || googleError?.message }</small></p>
     }
