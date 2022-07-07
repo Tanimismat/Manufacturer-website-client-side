@@ -26,6 +26,17 @@ const Blogs = () => {
                 <p>Prototype is a private property which links one object to another. The word 'prototypical inheritance' is a feature of JS used to add methods and properties in object which means by this method an object can have another object's properties and methods to reuse. The prototypical inheritance is explained through the image below :</p>
                 <img src="https://i.ibb.co/5KN3Y5Y/Screenshot-5.png" alt="" />
             </div>
+            <div>
+                <h4>What is unit test? Why should write unit test?</h4>
+                <p>Unit test is testing procedure by which individual units of written code are tested to determine if they are fit for use.</p>
+                <p>Here are the key reasons to perform unit test:</p>
+                <ul>
+                    <li>Helps to fix bugs</li>
+                    <li>Enable the developers to make changes quickly</li>
+                    <li>Reduce costs</li>
+                    <li>Improve design and performance</li>
+                </ul>
+            </div>
         </div>
     );
 };
