@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -6,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const MyOrders = () => {
-    const [orders, setOrders] = useState([]);
+    const [orders, setOrders] = useState();
     const [user] = useAuthState(auth);
     // const navigate = useNavigate()
     // console.log('User',user)
@@ -14,22 +15,22 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/orders?user=${user.email}`, {
+            axios(`http://localhost:5000/orders?user=${user.email}`, {
                 method: 'GET',
-                // headers: {
-                //     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                // }
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
             })
-                .then(res => {
-                    console.log('res', res);
-                    // if (res.status === 401 || res.status === 403) {
-                    //     navigate('/');
-                    // }
-                    // return res.json()
-                    res.json()
-                })
+                // .then(res => {
+                //     console.log('res', res);
+                //     // if (res.status === 401 || res.status === 403) {
+                //     //     navigate('/');
+                //     // }
+                //     // return res.json()
+                //     res.json()
+                // })
                 .then(data => {
-                    setOrders(data)
+                    setOrders(data.data)
                 })
         }
     }, [user]);
