@@ -19,15 +19,14 @@ const Login = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-
+    let from = location.state?.from?.pathname || "/";
+    
     const [token] = useToken(user || googleUser)
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
         }
     }, [token, from, navigate]);
-
-    let from = location.state?.from?.pathname || "/";
 
     let signInError;
     if (error || googleError) {

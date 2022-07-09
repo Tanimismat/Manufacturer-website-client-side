@@ -6,7 +6,7 @@ import auth from '../../firebase.init'
 
 const ToolDetail = () => {
     const [user] = useAuthState(auth)
-    console.log(user)
+    // console.log(user)
     const [singleTool, setSingleTool] = useState()
     const { id } = useParams()
     const [tools] = useTools()
