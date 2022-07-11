@@ -56,6 +56,7 @@ const Register = () => {
         const name = nameRef.current;
         const email = emailRef.current;
         const password = passwordRef.current;
+        console.log(name, email, password)
     }
     console.log("user info",userInfo)
     return (
@@ -68,9 +69,7 @@ const Register = () => {
                     <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)} >
                             <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
+                                <label className="label"><span className="label-text">Name</span></label>
                                 <input
                                     ref={nameRef}
                                     type="text"
@@ -143,10 +142,15 @@ const Register = () => {
                             </div>
                             {signInError}
                             <div className="form-control mt-2">
-                                    <button className="btn btn-primary">Register</button>
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary">Register</button>
                             </div>
                             <div className="form-control mt-2">
-                                    <button onClick={()=>signInWithGoogle()} className="btn btn-primary">Google</button>
+                                    <button
+                                        onClick={() => signInWithGoogle()}
+                                        type="submit"
+                                        className="btn btn-primary">Google</button>
                             </div>
                                 
                         </form>    

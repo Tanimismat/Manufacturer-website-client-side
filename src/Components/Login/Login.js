@@ -112,11 +112,16 @@ return (
                             </div>
                             {signInError}
                             <div className="form-control mt-2">
-                                <button className="btn btn-primary">Login</button>
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary">Login</button>
                             </div>
                         </form>    
                         <p className=''>or Connect with Social Media</p>
-                        <button onClick={()=> signInWithGoogle()} className="btn btn-primary">Sign in with Google</button>
+                        <button
+                            onClick={() => signInWithGoogle()}
+                            type="submit"
+                            className="btn btn-primary">Sign in with Google</button>
                         
                         <p>Don't have an account? <Link to="/register">Please Register</Link> </p>
                     </div>

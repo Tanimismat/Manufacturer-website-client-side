@@ -5,13 +5,14 @@ import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 // import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import ConfirmationModal from './ConfirmationModal';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState();
+
     const [user] = useAuthState(auth);
-    // const navigate = useNavigate()
-    // console.log('User',user)
-    console.log('Orders', orders)
+
+    const [openModal, setOpenModal] = useState(false);
 
     useEffect(() => {
         if (user) {
@@ -34,28 +35,26 @@ const MyOrders = () => {
         }
     }, [user]);
 
-    const handleOrderDelete = _id => {
-        const proceed = window.confirm('sure?')
-        if (proceed) {
-            console.log('deleting', _id)
-            const url = `http://localhost:5000/order/${_id}`;
-            fetch(url, {
-                method:'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        const remaining = orders.filter(orders => orders._id !== _id);
-                        setOrders(remaining)
-                    }
-            })
-        }
-    }
+    // const handleOrderDelete = _id => {
+    //     setOpenModal(true)
+    //     // if (proceed) {
+    //     //     console.log('deleting', _id)
+    //     //     const url = `http://localhost:5000/order/${_id}`;
+    //     //     fetch(url, {
+    //     //         method:'DELETE'
+    //     //     })
+    //     //         .then(res => res.json())
+    //     //         .then(data => {
+    //     //             if (data.deletedCount > 0) {
+    //     //                 const remaining = orders.filter(orders => orders._id !== _id);
+    //     //                 setOrders(remaining)
+    //     //             }
+    //     //     })
+    //     // }
+    // }
     
     return (
         <div>
-            {/* <p>my orders : {orders.length}</p> */}
-            
             <div className="overflow-x-auto">
                     <table className="table w-full">
                         <thead>
@@ -77,12 +76,15 @@ const MyOrders = () => {
                                 <td>{order.email}</td>
                                 <td>{order.product}</td>
                                 <td>{order.quantity}</td>
-                                <td><button onClick={()=>handleOrderDelete(order._id)} className="btn btn-xs">X</button></td>
+                                <td>
+                                    <label onClick={() => setOpenModal(true)} htmlFor="order-canceling-modal" className="btn modal-button">X</label>
+                                </td>
                             </tr>)
                         }
-                        
-                        </tbody>
-                    </table>
+                    </tbody>
+                    
+                </table>
+                {openModal && <ConfirmationModal/>}
                 </div>
         </div>
     );
