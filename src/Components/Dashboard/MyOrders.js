@@ -11,12 +11,11 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     // const navigate = useNavigate()
     // console.log('User',user)
-    console.log('Orders',orders)
+    console.log('Orders', orders)
 
     useEffect(() => {
         if (user) {
-            axios(`http://localhost:5000/orders?user=${user.email}`, {
-                method: 'GET',
+            axios.get(`http://localhost:5000/orders?user=${user.email}`, {
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -34,11 +33,30 @@ const MyOrders = () => {
                 })
         }
     }, [user]);
+
+    const handleOrderDelete = _id => {
+        const proceed = window.confirm('sure?')
+        if (proceed) {
+            console.log('deleting', _id)
+            const url = `http://localhost:5000/order/${_id}`;
+            fetch(url, {
+                method:'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        const remaining = orders.filter(orders => orders._id !== _id);
+                        setOrders(remaining)
+                    }
+            })
+        }
+    }
     
     return (
         <div>
             {/* <p>my orders : {orders.length}</p> */}
-                <div className="overflow-x-auto">
+            
+            <div className="overflow-x-auto">
                     <table className="table w-full">
                         <thead>
                         <tr>
@@ -47,6 +65,7 @@ const MyOrders = () => {
                             <th>Email</th>
                             <th>Product</th>
                             <th>Quantity</th>
+                            <th></th>
                         </tr>
                         </thead>
                     <tbody>
@@ -58,6 +77,7 @@ const MyOrders = () => {
                                 <td>{order.email}</td>
                                 <td>{order.product}</td>
                                 <td>{order.quantity}</td>
+                                <td><button onClick={()=>handleOrderDelete(order._id)} className="btn btn-xs">X</button></td>
                             </tr>)
                         }
                         
