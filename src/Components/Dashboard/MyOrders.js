@@ -9,7 +9,7 @@ import ConfirmationModal from './ConfirmationModal';
 
 const MyOrders = () => {
     const [orders, setOrders] = useState();
-
+console.log(orders)
     const [user] = useAuthState(auth);
 
     const [openModal, setOpenModal] = useState(false);
@@ -35,23 +35,22 @@ const MyOrders = () => {
         }
     }, [user]);
 
-    // const handleOrderDelete = _id => {
-    //     setOpenModal(true)
-    //     // if (proceed) {
-    //     //     console.log('deleting', _id)
-    //     //     const url = `http://localhost:5000/order/${_id}`;
-    //     //     fetch(url, {
-    //     //         method:'DELETE'
-    //     //     })
-    //     //         .then(res => res.json())
-    //     //         .then(data => {
-    //     //             if (data.deletedCount > 0) {
-    //     //                 const remaining = orders.filter(orders => orders._id !== _id);
-    //     //                 setOrders(remaining)
-    //     //             }
-    //     //     })
-    //     // }
-    // }
+    const handleOrderDelete = _id => {
+        // console.log('deleting', _id)
+        const url = `http://localhost:5000/order/${_id}`;
+        // console.log(url)
+            fetch(url, {
+                method:'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        const remaining = orders.filter(orders => orders._id !== _id);
+                        setOrders(remaining)
+                    }
+            })
+    }
+    
     
     return (
         <div>
@@ -84,7 +83,7 @@ const MyOrders = () => {
                     </tbody>
                     
                 </table>
-                {openModal && <ConfirmationModal/>}
+                {openModal && <ConfirmationModal orders={orders} handleOrderDelete={handleOrderDelete} setOpenModal={setOpenModal} />}
                 </div>
         </div>
     );
