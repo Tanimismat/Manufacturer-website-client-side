@@ -1,62 +1,62 @@
 [
-    {
-        "img": "https://image.made-in-china.com/202f0j00TLCGZkBdkScv/Bench-Drilling-Vertical-Mini-Milling-Machine.jpg",
-        "name": "Flux Core Welder",
-        "brand": "Vulcan",
-        "description": "STEGODON MIG 140 Welder Portable Flux Core Wire Automatic Feed 140 Welder Welding Machine w/Free Mask ARC 110V with Electrode Holder,Work Clamp, Input Power Adapter Cable and Brush",
-        "price": "$20.00 to $300.50",
-        "minOrder": "500",
-        "availableQuantity": "500000",
-        "shipping": "50.25"
-    },
-    {
-        "img": "https://image.made-in-china.com/202f0j00TLCGZkBdkScv/Bench-Drilling-Vertical-Mini-Milling-Machine.jpg",
-        "name": "Press Break",
-        "brand": "Bermen",
-        "description": "This Press Brake kit comes Fully Welded and ready to go right out of the box. Designed to fit the Harbor Freight 20 ton hydraulic press Item # 32879, 60603, or any Press with 22.125 between the vertical uprights. Press brake kit includes an adjustable back stop for accurate and repeatable bends" ,
-        "price": "$20.00 to $500.50",
-        "minOrder": "500",
-        "availableQuantity": "500000",
-        "shipping": "50.25"
-    },
-    {
-        "img": "https://image.made-in-china.com/202f0j00TLCGZkBdkScv/Bench-Drilling-Vertical-Mini-Milling-Machine.jpg",
-        "name": "Thread Cutting Taps",
-        "brand": "Vulcan",
-        "description": "Taps are manufactured from the finest steel available. The heat treatment process is controlled by our metallurgical laboratory using advanced computerised and electronic instrumentation. High Speed Steel contains various elements such as Molybdenum, Tungsten, Cobalt and Vanadium and must be specially treated to produce the ideal combination of strength, toughness and wear resistance. These products are manufactured from one of the following High Speed Steels depending on the product and application.",
-        "price": "$20.00 to $300.50",
-        "minOrder": "500",
-        "availableQuantity": "500000",
-        "shipping": "50.25"
-    },
-    {
-        "img": "https://image.made-in-china.com/202f0j00TLCGZkBdkScv/Bench-Drilling-Vertical-Mini-Milling-Machine.jpg",
-        "name": "Multipurpose Magnet holder",
-        "brand": "Bermen",
-        "description": "The 4-3/4 in. heavy-duty steel magnet supports material at 45°, 90°, and 135 ° for easy access. The magnet holder supports any ferrous metal object up to 20 lb. and can also be used as a floater to separate steel plates.",
-        "price": "$20.00 to $500.50",
-        "minOrder": "500",
-        "availableQuantity": "500000",
-        "shipping": "50.25"
-    },
-    {
-        "img": "https://image.made-in-china.com/202f0j00TLCGZkBdkScv/Bench-Drilling-Vertical-Mini-Milling-Machine.jpg",
-        "name": "9 Amp Circular Saw Blade Sharpener",
-        "brand": "Vulcan",
-        "description": "This portable circular saw blade sharpener makes it possible to sharpen several blades at a time. Constructed with a die cast aluminum base and indexing arm, this saw blade sharpener is durable but lightweight. Features include a motor block that tilts 25 degrees left and right to adjust for different blade tooth configurations.",
-        "price": "$20.00 to $300.50",
-        "minOrder": "500",
-        "availableQuantity": "500000",
-        "shipping": "50.25"
-    },
-    {
-        "img": "https://image.made-in-china.com/202f0j00TLCGZkBdkScv/Bench-Drilling-Vertical-Mini-Milling-Machine.jpg",
-        "name": "Metal Working Lathe",
-        "brand": "Bermen",
-        "description": "This superb, precision mini lathe is designed to perform a wide variety of tasks.It is solidly manufactured, with a cast iron bedway and has many features usually found on machines twice its size and price.",
-        "price": "$20.00 to $300.50",
-        "minOrder": "500",
-        "availableQuantity": "500000",
-        "shipping": "50.25"
-    }
+	{
+		"img": "https://i.ibb.co/RH0LPRQ/flux-Core-1.jpg",
+		"name": "Flux Core Welder",
+		"brand": "Vulcan",
+		"description": "STEGODON MIG 140 Welder Portable Flux Core Wire Automatic Feed 140 Welder Welding Machine w/Free Mask ARC 110V with Electrode Holder,Work Clamp, Input Power Adapter Cable and Brush",
+		"price": "$20.00 to $300.50",
+		"minOrder": "500",
+		"availableQuantity": "500000",
+		"shipping": "50.25"
+	},
+	{
+		"img": "https://i.ibb.co/DgmV9wB/press-Break-1.jpg",
+		"name": "Press Break",
+		"brand": "Bermen",
+		"description": "STEGODON MIG 140 Welder Portable Flux Core Wire Automatic Feed 140 Welder Welding Machine w/Free Mask ARC 110V with Electrode Holder,Work Clamp, Input Power Adapter Cable and Brush",
+		"price": "$20.00 to $500.50",
+		"minOrder": "500",
+		"availableQuantity": "500000",
+		"shipping": "50.25"
+	},
+	{
+		"img": "https://i.ibb.co/t4n3xJW/thread-Cutting-Tap-1.jpg",
+		"name": "Thread Cutting Taps",
+		"brand": "Vulcan",
+		"description": "STEGODON MIG 140 Welder Portable Flux Core Wire Automatic Feed 140 Welder Welding Machine w/Free Mask ARC 110V with Electrode Holder,Work Clamp, Input Power Adapter Cable and Brush",
+		"price": "$20.00 to $300.50",
+		"minOrder": "500",
+		"availableQuantity": "500000",
+		"shipping": "50.25"
+	},
+	{
+		"img": "https://i.ibb.co/hmWD0LH/magnet-Holder-1-1.jpg",
+		"name": "Multipurpose Magnet holder",
+		"brand": "Bermen",
+		"description": "STEGODON MIG 140 Welder Portable Flux Core Wire Automatic Feed 140 Welder Welding Machine w/Free Mask ARC 110V with Electrode Holder,Work Clamp, Input Power Adapter Cable and Brush",
+		"price": "$20.00 to $500.50",
+		"minOrder": "500",
+		"availableQuantity": "500000",
+		"shipping": "50.25"
+	},
+	{
+		"img": "https://i.ibb.co/6DH8YL7/saw-Blade-Sharpner.jpg",
+		"name": "9 Amp Circular Saw Blade Sharpener",
+		"brand": "Vulcan",
+		"description": "STEGODON MIG 140 Welder Portable Flux Core Wire Automatic Feed 140 Welder Welding Machine w/Free Mask ARC 110V with Electrode Holder,Work Clamp, Input Power Adapter Cable and Brush",
+		"price": "$20.00 to $300.50",
+		"minOrder": "500",
+		"availableQuantity": "500000",
+		"shipping": "50.25"
+	},
+	{
+		"img": "https://i.ibb.co/pjwrS4V/lathe-Machine-1.jpg",
+		"name": "Metal Working Lathe",
+		"brand": "Bermen",
+		"description": "STEGODON MIG 140 Welder Portable Flux Core Wire Automatic Feed 140 Welder Welding Machine w/Free Mask ARC 110V with Electrode Holder,Work Clamp, Input Power Adapter Cable and Brush",
+		"price": "$20.00 to $300.50",
+		"minOrder": "500",
+		"availableQuantity": "500000",
+		"shipping": "50.25"
+	}
 ]

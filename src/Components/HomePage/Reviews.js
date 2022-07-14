@@ -6,14 +6,14 @@ const Reviews = () => {
 	return (
 		<div className="py-24">
 			<h2 className="text-center">Reviews Section</h2>
-			<div className="grid gap-8 grid-cols-3 px-8">
+			<div className="grid gap-16 lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 px-16">
 				{/* ---------------- review 1 --------------------- */}
 				<div className="card bg-base-100 shadow-xl">
 					<div className="card-body">
 						<div className="card-title">
 							<div className="flex items-center mb-4 space-x-4">
-								<div class="avatar">
-									<div class="w-24 rounded-full">
+								<div className="avatar">
+									<div className="w-24 rounded-full">
 										<img src={user} alt="User" />
 									</div>
 								</div>
@@ -111,8 +111,8 @@ const Reviews = () => {
 					<div className="card-body">
 						<div className="card-title">
 							<div className="flex items-center mb-4 space-x-4">
-								<div class="avatar">
-									<div class="w-24 rounded-full">
+								<div className="avatar">
+									<div className="w-24 rounded-full">
 										<img src={user} alt="User" />
 									</div>
 								</div>
@@ -210,8 +210,8 @@ const Reviews = () => {
 					<div className="card-body">
 						<div className="card-title">
 							<div className="flex items-center mb-4 space-x-4">
-								<div class="avatar">
-									<div class="w-24 rounded-full">
+								<div className="avatar">
+									<div className="w-24 rounded-full">
 										<img src={user} alt="User" />
 									</div>
 								</div>

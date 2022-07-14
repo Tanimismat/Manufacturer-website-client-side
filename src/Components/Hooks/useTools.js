@@ -1,18 +1,18 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const useTools = () => {
+	const [tools, setTools] = useState([]);
 
-    const [tools, setTools] = useState([]);
+	useEffect(() => {
+		axios("https://supermarche-livre-02956.herokuapp.com/tools").then(
+			(data) => {
+				setTools(data.data);
+			}
+		);
+	}, []);
 
-    useEffect(() => {
-        axios('http://localhost:5000/tools')
-            .then(data => {
-                setTools(data.data)
-            });
-    }, []);
-
-    return [tools, setTools];
+	return [tools, setTools];
 };
 
 export default useTools;
