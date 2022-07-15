@@ -13,8 +13,8 @@ const ExtraSectionOne = ({ setModal }) => {
 				<div className="modal-box">
 					<label
 						onClick={() => setModal(false)}
-						for="my-modal-6"
-						class="btn btn-sm btn-circle absolute right-2 top-2">
+						htmlFor="my-modal-6"
+						className="btn btn-sm btn-circle absolute right-2 top-2">
 						✕
 					</label>
 					<h3 className="font-bold text-lg">
@@ -25,12 +25,12 @@ const ExtraSectionOne = ({ setModal }) => {
 						<input
 							type="text"
 							placeholder="Enter your name"
-							class="input input-bordered w-full max-w-xs mb-4"
+							className="input input-bordered w-full max-w-xs mb-4"
 						/>
 						<input
 							type="email"
 							placeholder="Enter your email"
-							class="input input-bordered w-full max-w-xs"
+							className="input input-bordered w-full max-w-xs"
 						/>
 					</div>
 					<div className="modal-action grid justify-items-start">

@@ -11,14 +11,16 @@ import Tools from "./Tools";
 const Home = () => {
 	const [modal, setModal] = useState(true);
 
+	const [bottomBar, setBottomBar] = useState(true);
+
 	return (
 		<div className="bg-base-200">
 			<Header></Header>
 			<Banner></Banner>
-
 			{modal}
 			<ExtraSectionOne setModal={setModal}></ExtraSectionOne>
-			<ExtraSection2></ExtraSection2>
+
+			{bottomBar && <ExtraSection2 setBottomBar={setBottomBar}></ExtraSection2>}
 			<Tools></Tools>
 			<BusinessSummary></BusinessSummary>
 			<Reviews></Reviews>
