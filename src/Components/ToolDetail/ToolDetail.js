@@ -6,7 +6,6 @@ import auth from "../../firebase.init";
 
 const ToolDetail = () => {
 	const [user] = useAuthState(auth);
-	// console.log(user)
 	const [singleTool, setSingleTool] = useState();
 	const { id } = useParams();
 	const [tools] = useTools();
@@ -17,25 +16,23 @@ const ToolDetail = () => {
 	}, [tools, id]);
 	return (
 		<div>
-			<div class="card lg:card-side bg-base-100 shadow-xl">
-				<figure>
-					<img src="https://placeimg.com/400/400/arch" alt="Album" />
-				</figure>
-				<div class="card-body">
-					<h2 class="card-title">New album is released!</h2>
-					<p>Click the button to listen on Spotiwhy app.</p>
-					<div class="card-actions justify-end">
-						<button class="btn btn-primary">Listen</button>
-					</div>
+			<div className="card lg:w-4/6 bg-base-100">
+				<div className="card-body">
+					<h2 className="text-xl">User Details:</h2>
+					<p>{user?.email}</p>
+					<p>{user?.displayName}</p>
+				</div>
+				<div className="card-body">
+					<h2 className="text-xl">Tool Details:</h2>
+					<h2 className="card-title">Name: {singleTool?.name}</h2>
+					<p className="text-xs">{id}</p>
+					<p>Price range: {singleTool?.price}</p>
+					<p>{singleTool?.description}</p>
+					<figure>
+						<img src={singleTool?.img} alt="Tool" />
+					</figure>
 				</div>
 			</div>
-			<h5>Tool detail: {id}</h5>
-			<p>{user?.displayName}</p>
-			<p>{user?.email}</p>
-			<img className="" src={singleTool?.img} alt="tool" />
-			<h6>{singleTool?.name}</h6>
-			<h5>$ {singleTool?.price}</h5>
-			<p>{singleTool?.description}</p>
 		</div>
 	);
 };

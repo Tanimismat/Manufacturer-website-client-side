@@ -19,7 +19,6 @@ const Home = () => {
 			<Banner></Banner>
 			{modal}
 			<ExtraSectionOne setModal={setModal}></ExtraSectionOne>
-
 			{bottomBar && <ExtraSection2 setBottomBar={setBottomBar}></ExtraSection2>}
 			<Tools></Tools>
 			<BusinessSummary></BusinessSummary>

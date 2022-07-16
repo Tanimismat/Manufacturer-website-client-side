@@ -11,7 +11,6 @@ const MyOrders = () => {
 	const [orders, setOrders] = useState();
 	console.log(orders);
 	const [user] = useAuthState(auth);
-
 	const [openModal, setOpenModal] = useState(false);
 
 	useEffect(() => {

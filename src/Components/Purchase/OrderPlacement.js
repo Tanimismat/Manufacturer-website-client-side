@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useRef } from "react";
-import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
 const OrderPlacement = () => {
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 	const min = 100;
-	const max = 50000;
+	const max = 300;
 
-	const [value, setValue] = useState(0);
+	const [value, setValue] = useState("");
 
 	const [user] = useAuthState(auth);
 
@@ -23,13 +22,13 @@ const OrderPlacement = () => {
 		setValue(value);
 	};
 
-	useEffect(() => {
-		if (value < min || value > max) {
-			setIsButtonDisabled(true);
-		} else {
-			setIsButtonDisabled(false);
-		}
-	}, [value]);
+	// useEffect(() => {
+	// 	if (value < min) {
+	// 		setIsButtonDisabled(true);
+	// 	} else {
+	// 		setIsButtonDisabled(false);
+	// 	}
+	// }, [value]);
 
 	const addressRef = useRef("");
 	const phoneRef = useRef("");
@@ -65,45 +64,55 @@ const OrderPlacement = () => {
 	};
 
 	return (
-		<div>
-			<h4>place order</h4>
-			<form onSubmit={handleOrder}>
-				<textarea
-					autoComplete="off"
-					ref={addressRef}
-					className="textarea textarea-bordered"
-					id="exampleFormControlTextarea1"
-					name="address"
-					cols="30"
-					rows="10"
-					placeholder="Address"></textarea>
-				<br />
-				<input
-					className="input input-bordered w-full max-w-xs"
-					autoComplete="off"
-					ref={phoneRef}
-					type="tel"
-					name="phone"
-					id="phone"
-					placeholder="Phone Number"
-				/>{" "}
-				<br />
-				<input
-					autoComplete="off"
-					ref={quantityRef}
-					type="number"
-					placeholder="Enter the quantity"
-					value={value}
-					onChange={handleChange}
-				/>{" "}
-				<br />
-				<input
-					disabled={isButtonDisabled}
-					type="submit"
-					value="Complete Purchase"
-				/>{" "}
-				<br />
-			</form>
+		<div className="hero my-10">
+			<div className="card w-96 bg-base-100 shadow-xl">
+				<div className="card-body">
+					<p className="text-center text-xl">Place Order</p>
+					<form onSubmit={handleOrder}>
+						<textarea
+							autoComplete="off"
+							ref={addressRef}
+							className="textarea textarea-bordered mb-2"
+							id="exampleFormControlTextarea1"
+							name="address"
+							cols="30"
+							rows="10"
+							placeholder="Address"></textarea>
+						<br />
+						<input
+							className="input input-bordered w-full max-w-xs mb-3"
+							autoComplete="off"
+							ref={phoneRef}
+							type="tel"
+							name="phone"
+							id="phone"
+							placeholder="Phone Number"
+						/>
+						<br />
+						<input
+							className="input input-bordered w-full max-w-xs mb-3"
+							autoComplete="off"
+							ref={quantityRef}
+							type="number"
+							placeholder="Enter the quantity"
+							value={value}
+							onChange={handleChange}
+						/>
+						<br />
+						<input
+							className="btn btn-primary"
+							disabled={
+								value < min || value > max
+									? isButtonDisabled
+									: !isButtonDisabled
+							}
+							type="submit"
+							value="Complete Purchase"
+						/>
+						<br />
+					</form>
+				</div>
+			</div>
 		</div>
 	);
 };
