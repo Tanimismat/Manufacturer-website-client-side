@@ -38,14 +38,3 @@ const ToolDetail = () => {
 };
 
 export default ToolDetail;
-
-// const products = [
-// 	{ name: "Watch", price: 10, color: "black" },
-// 	{ name: "Watch", price: 10, color: "gray" },
-// 	{ name: "Laptop", price: 15, color: "blue" },
-// 	{ name: "Phone", price: 5, color: "gray" },
-// ];
-
-// const myProduct = products.filter((product) => product.name == "Watch");
-
-// console.log(myProduct);
