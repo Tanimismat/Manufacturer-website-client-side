@@ -32,7 +32,7 @@ const Header = () => {
 			<li>{!user && <Link to="/register">Register</Link>}</li>
 			<li>{user && <Link to="/dashboard">Dashboard</Link>}</li>
 			<li>
-				<Link to="/">Contact us</Link>
+				<Link to="/portfolio">My Portfolio</Link>
 			</li>
 		</>
 	);
