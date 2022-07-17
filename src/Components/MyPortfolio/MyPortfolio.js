@@ -17,9 +17,35 @@ const MyPortfolio = () => {
 							Science & Engineering, University of Rajshahi
 						</p>
 						<p>Technologies I know as a web developer: </p>
-						<li>Frontend library -- React</li>
+						<li>JS Frontend library -- React</li>
 						<li>CSS framework -- Bootstrap</li>
 						<li>Vanilla CSS</li>
+						<p>Familiar with:</p>
+						<li>JS runtime -- Node.js</li>
+						<li>Database -- MongoDB</li>
+						<li>CSS framework -- Tailwind CSS</li>
+						<p>Links of three of my projects:</p>
+						<li>
+							<a
+								className="hover:underline underline-offset-2 hover:text-primary"
+								href="https://independent-service-prov-fd90d.web.app/">
+								Your success mentor
+							</a>
+						</li>
+						<li>
+							<a
+								className="hover:underline underline-offset-2 hover:text-primary"
+								href="https://profound-genie-32ff25.netlify.app/">
+								Laptop-analysis-website
+							</a>
+						</li>
+						<li>
+							<a
+								className="hover:underline underline-offset-2 hover:text-primary"
+								href="https://hungry-babbage-6ee332.netlify.app/">
+								Phone arena
+							</a>
+						</li>
 					</div>
 				</div>
 			</div>
