@@ -14,13 +14,13 @@ const Home = () => {
 	const [bottomBar, setBottomBar] = useState(true);
 
 	return (
-		<div className="bg-base-200">
+		<div>
 			<Header></Header>
 			<Banner></Banner>
 			{modal}
-			<ExtraSectionOne setModal={setModal}></ExtraSectionOne>
 			{bottomBar && <ExtraSection2 setBottomBar={setBottomBar}></ExtraSection2>}
 			<Tools></Tools>
+			<ExtraSectionOne setModal={setModal}></ExtraSectionOne>
 			<BusinessSummary></BusinessSummary>
 			<Reviews></Reviews>
 			<Footer></Footer>

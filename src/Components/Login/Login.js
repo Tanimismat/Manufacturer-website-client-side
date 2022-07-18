@@ -64,6 +64,7 @@ const Login = () => {
 				<div className="hero-content flex-col lg:flex-row-reverse">
 					<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 						<div className="card-body">
+							<p className="text-center text-xl font-semibold">Login</p>
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<div className="form-control">
 									<label className="label">

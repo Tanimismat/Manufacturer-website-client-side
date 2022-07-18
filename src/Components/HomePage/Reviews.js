@@ -4,8 +4,7 @@ import user from "../../images/user (1).png";
 
 const Reviews = () => {
 	return (
-		<div className="py-24">
-			<h2 className="text-center">Reviews Section</h2>
+		<div className="py-16">
 			<div className="grid gap-16 lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 px-16">
 				{/* ---------------- review 1 --------------------- */}
 				<div className="card bg-base-100 shadow-xl">
@@ -76,11 +75,9 @@ const Reviews = () => {
 							</p>
 						</footer>
 						<p className="mb-2 font-light">
-							This is my third Invicta Pro Diver. They are just fantastic value
-							for money. This one arrived yesterday and the first thing I did
-							was set the time, popped on an identical strap from another
-							Invicta and went in the shower with it to test the
-							waterproofing....
+							This is my third .... They are just fantastic value for money.
+							This one arrived yesterday and the first thing I did was set the
+							time...
 						</p>
 						<Link
 							to="/"
@@ -96,11 +93,6 @@ const Reviews = () => {
 									to="#"
 									className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-2 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
 									Helpful
-								</Link>
-								<Link
-									to="#"
-									className="pl-4 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-									Report abuse
 								</Link>
 							</div>
 						</aside>
@@ -175,11 +167,9 @@ const Reviews = () => {
 							</p>
 						</footer>
 						<p className="mb-2 font-light">
-							This is my third Invicta Pro Diver. They are just fantastic value
-							for money. This one arrived yesterday and the first thing I did
-							was set the time, popped on an identical strap from another
-							Invicta and went in the shower with it to test the
-							waterproofing....
+							This is my third .... They are just fantastic value for money.
+							This one arrived yesterday and the first thing I did was set the
+							time...
 						</p>
 						<Link
 							to="/"
@@ -195,11 +185,6 @@ const Reviews = () => {
 									to="#"
 									className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-2 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
 									Helpful
-								</Link>
-								<Link
-									to="#"
-									className="pl-4 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-									Report abuse
 								</Link>
 							</div>
 						</aside>
@@ -274,11 +259,9 @@ const Reviews = () => {
 							</p>
 						</footer>
 						<p className="mb-2 font-light">
-							This is my third Invicta Pro Diver. They are just fantastic value
-							for money. This one arrived yesterday and the first thing I did
-							was set the time, popped on an identical strap from another
-							Invicta and went in the shower with it to test the
-							waterproofing....
+							This is my third .... They are just fantastic value for money.
+							This one arrived yesterday and the first thing I did was set the
+							time...
 						</p>
 						<Link
 							to="/"
@@ -294,11 +277,6 @@ const Reviews = () => {
 									to="#"
 									className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-2 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
 									Helpful
-								</Link>
-								<Link
-									to="#"
-									className="pl-4 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-									Report abuse
 								</Link>
 							</div>
 						</aside>

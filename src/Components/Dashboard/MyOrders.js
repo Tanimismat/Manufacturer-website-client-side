@@ -63,7 +63,6 @@ const MyOrders = () => {
 							<th></th>
 							<th>Name</th>
 							<th>Email</th>
-							<th>Product</th>
 							<th>Quantity</th>
 							<th></th>
 						</tr>
@@ -74,7 +73,6 @@ const MyOrders = () => {
 								<th>{index + 1}</th>
 								<td>{order.userName}</td>
 								<td>{order.email}</td>
-								<td>{order.product}</td>
 								<td>{order.quantity}</td>
 								<td>
 									<label

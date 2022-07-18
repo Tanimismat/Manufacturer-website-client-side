@@ -3,8 +3,8 @@ import banner2 from "../../images/banner-2.png";
 
 const Banner = () => {
 	return (
-		<div className="my-10">
-			<div className="hero bg-base-200 lg:p-24 md:p-36">
+		<div className="my-2">
+			<div className="hero lg:p-16 md:p-36">
 				<div className="hero-content flex-col lg:flex-row-reverse">
 					<img
 						src={banner2}
@@ -12,13 +12,14 @@ const Banner = () => {
 						alt="Album"
 					/>
 					<div>
-						<h1 className="text-5xl font-bold">Box Office News!</h1>
+						<h1 className="text-4xl font-bold">
+							The First Name in Build-to-Last
+						</h1>
 						<p className="py-6">
-							Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-							excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-							et a id nisi.
+							Our manufacturing process is specially designed to deliver
+							stronger, more precise, and longer lasting tools.
 						</p>
-						<button className="btn btn-primary">Get Started</button>
+						<button className="btn btn-primary text-white">Log in</button>
 					</div>
 				</div>
 			</div>

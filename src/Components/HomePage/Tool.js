@@ -10,9 +10,9 @@ const Tool = ({ tool }) => {
 		navigate(`/purchase/${id}`);
 	};
 	return (
-		<div className="card w-96 glass">
+		<div className="card glass w-96 m-7">
 			<figure>
-				<img src={img} alt="car!" />
+				<img src={img} alt="Tools" />
 			</figure>
 			<div className="card-body">
 				<h2 className="card-title">{name}</h2>
@@ -23,7 +23,7 @@ const Tool = ({ tool }) => {
 				<div className="card-actions justify-center">
 					<button
 						onClick={() => navigateToPurchaseDetail(_id)}
-						className="btn btn-primary">
+						className="btn btn-primary text-white">
 						<Link to="/purchase">Place Order</Link>
 					</button>
 				</div>

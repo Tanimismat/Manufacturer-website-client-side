@@ -77,11 +77,6 @@ const ReviewInfo = () => {
 					the time, popped on an identical strap from another Invicta and went
 					in the shower with it to test the waterproofing.... No problems.
 				</p>
-				<p className="mb-3 font-light">
-					It is obviously not the same build quality as those very expensive
-					watches. But that is like comparing a Citroën to a Ferrari. This watch
-					was well under £100! An absolute bargain.
-				</p>
 				<Link
 					to="/"
 					className="block mb-5 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">

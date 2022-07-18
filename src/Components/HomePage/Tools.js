@@ -6,8 +6,8 @@ const Tools = () => {
 	// console.log(tools)
 
 	return (
-		<div>
-			<div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 overflow-auto">
+		<div className="hero ">
+			<div className="grid  lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 overflow-auto ">
 				{tools.map((tool, index) => (
 					<Tool key={tool._id} tool={tool}></Tool>
 				))}

@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
 	return (
-		<div className="" role="status">
+		<div style={{ width: "300px" }} className="" role="status">
 			<svg
 				aria-hidden="true"
 				className="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

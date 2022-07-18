@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 
 const ExtraSectionOne = ({ setModal }) => {
 	return (
-		<div>
-			<label htmlFor="my-modal-6" className="btn modal-button">
-				open modal
-			</label>
+		<div className="mt-10">
+			<div className="flex justify-center">
+				<label
+					htmlFor="my-modal-6"
+					className="btn btn-primary modal-button w-52 text-white">
+					Click here to Get Offer
+				</label>
+			</div>
 
 			<input type="checkbox" id="my-modal-6" className="modal-toggle" />
 			<div className="modal modal-bottom sm:modal-middle">
@@ -37,7 +41,7 @@ const ExtraSectionOne = ({ setModal }) => {
 						<label
 							htmlFor="my-modal-6"
 							className="btn grid justify-items-start">
-							<Link to="/login">Let me in</Link>
+							<Link to="/login">Continue</Link>
 						</label>
 					</div>
 				</div>

@@ -1,6 +1,6 @@
-Website name : Toollance
+## Website name : Toollance
 
-Live site: [link](https://www.google.com)
+## Live site: [link](https://www.google.com)
 
 Features of the website:
 
@@ -11,3 +11,4 @@ Features of the website:
 - Used MongoDB as database
 - Used Git as DevOps tool
 - Used Firebase hosting system for hosting client side application
+- Hosted server side on Heroku

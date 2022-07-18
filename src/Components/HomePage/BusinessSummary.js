@@ -9,7 +9,7 @@ const BusinessSummary = () => {
 			<h4 className="text-2xl text-center mt-16">
 				MILLIONS OF BUSINESS TRUST US
 			</h4>
-			<h6 className="text-center mb-10">TRY TO UNDERSTAND USERS EXPECTATION</h6>
+			<h6 className="text-center my-2">TRY TO UNDERSTAND USERS EXPECTATION</h6>
 			<div className="grid gap-8 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 px-36">
 				<div className="grid justify-items-center ">
 					<FiIcons.FiFlag size={70} className="text-primary my-5" />
