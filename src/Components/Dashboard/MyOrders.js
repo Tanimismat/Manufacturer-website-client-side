@@ -9,7 +9,7 @@ import ConfirmationModal from "./ConfirmationModal";
 
 const MyOrders = () => {
 	const [orders, setOrders] = useState();
-	console.log(orders);
+	// console.log(orders);
 	const [user] = useAuthState(auth);
 	const [openModal, setOpenModal] = useState(false);
 
